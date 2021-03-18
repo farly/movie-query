@@ -7,12 +7,18 @@ import { HomeScreen } from './../screens/HomeScreen';
 
 import * as movieService from './../../api/service/movies';
 
+const {
+  REACT_APP_IMDB_API_URL,
+  REACT_APP_IMDB_APIKEY,
+  REACT_APP_DEFAULT_SEARCH_TERM
+} = process.env;
+
 export const HomeContainer = (props) => {
 
   const [formState, setFormState] = useState({
-    url: '',
-    apikey: '',
-    headers: '',
+    url: REACT_APP_IMDB_API_URL || '',
+    apikey: REACT_APP_IMDB_APIKEY || '',
+    headers: REACT_APP_DEFAULT_SEARCH_TERM || '',
     body: '',
     httpMethod: ''
   })
